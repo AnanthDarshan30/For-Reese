@@ -4,10 +4,33 @@
   <!-- YES/NO buttons -->
   <div class="button-wrapper" *ngIf="!showNameInput">
     <div class="buttons">
-      <button class="yes-button" (mouseenter)="moveYesButton($event)">
+      <button
+        class="yes-button"
+        [disabled]="buttonsDisabled || !canClickYes"
+        (mouseenter)="moveYesButton($event)"
+        (click)="onYesClick()"
+      >
         Yes
       </button>
-      <button class="no-button" (click)="showInput()">No</button>
+      <button
+        class="no-button"
+        [disabled]="buttonsDisabled"
+        (click)="onNoClick()"
+      >
+        No
+      </button>
+    </div>
+    <div
+      *ngIf="!canClickYes && !buttonsDisabled"
+      style="margin-top: 1rem; color: #888; font-size: 0.9rem"
+    >
+      (Are you really my girlfriend?)
+    </div>
+    <div
+      *ngIf="canClickYes && !buttonsDisabled"
+      style="margin-top: 1rem; color: #28a745; font-size: 0.9rem"
+    >
+      Maybe you really are!
     </div>
   </div>
 

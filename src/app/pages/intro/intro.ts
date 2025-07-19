@@ -14,10 +14,13 @@ export class IntroPageComponent {
   showNameInput: boolean = false;
   enteredName: string = '';
   isNameCorrect: boolean = false;
+  yesDodgeCount: number = 0;
+  canClickYes: boolean = false;
+  buttonsDisabled: boolean = false;
 
   constructor(private router: Router) {}
 
-  // Called when "No" is clicked — show input field
+  // Called when "Yes" is clicked — show input field
   showInput() {
     this.questionText = 'If you are my girlfriend, type your name below:';
     this.showNameInput = true;
@@ -30,8 +33,14 @@ export class IntroPageComponent {
     this.isNameCorrect = this.enteredName === 'reese';
   }
 
-  // Move "Yes" button around playfully
+  // Move "Yes" button around playfully, but allow click after 5 dodges
   moveYesButton(event: MouseEvent) {
+    if (this.canClickYes || this.buttonsDisabled) return;
+    this.yesDodgeCount++;
+    if (this.yesDodgeCount >= 8) {
+      this.canClickYes = true;
+      return;
+    }
     const button = event.target as HTMLElement;
     const container = button.parentElement;
 
@@ -47,6 +56,19 @@ export class IntroPageComponent {
       button.style.left = `${randomX}px`;
       button.style.top = `${randomY}px`;
     }
+  }
+
+  // YES button click handler
+  onYesClick() {
+    if (this.canClickYes && !this.buttonsDisabled) {
+      this.showInput();
+    }
+  }
+
+  // NO button click handler
+  onNoClick() {
+    this.questionText = 'Too bad';
+    this.buttonsDisabled = true;
   }
 
   // Make submit button dodge if name is incorrect
