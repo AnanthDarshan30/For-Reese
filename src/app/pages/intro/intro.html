@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>{{ questionText }}</h1>
+
+  <!-- YES/NO buttons -->
+  <div class="button-wrapper" *ngIf="!showNameInput">
+    <div class="buttons">
+      <button class="yes-button" (mouseenter)="moveYesButton($event)">
+        Yes
+      </button>
+      <button class="no-button" (click)="showInput()">No</button>
+    </div>
+  </div>
+
+  <!-- Name input + Submit -->
+  <div class="input-section" *ngIf="showNameInput">
+    <input
+      type="text"
+      placeholder="Enter your name"
+      (input)="onNameChange($event)"
+    />
+    <button
+      class="submit-button"
+      [disabled]="!isNameCorrect"
+      (mouseenter)="maybeDodgeSubmit($event)"
+      (click)="goToMainPage()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

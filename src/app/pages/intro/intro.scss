@@ -1,0 +1,85 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff0f5; /* light pastel pink */
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Wrapper for YES/NO buttons */
+.button-wrapper {
+  position: relative;
+  width: 300px;
+  height: 80px;
+}
+
+.buttons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Both buttons initially positioned side by side */
+.yes-button,
+.no-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #add8e6;
+  color: #000;
+  position: absolute;
+  transition: top 0.2s, left 0.2s;
+}
+
+/* Initial positions */
+.yes-button {
+  top: 20px;
+  left: 30px;
+  z-index: 2;
+}
+
+.no-button {
+  top: 20px;
+  left: 160px;
+}
+
+/* Input area styles */
+.input-section {
+  position: relative;
+  width: 300px;
+  height: 130px;
+}
+
+input[type="text"] {
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  background-color: #add8e6;
+  color: #000;
+  position: absolute;
+  left: 100px;
+  top: 70px;
+  width: 90px;
+  height: 40px;
+  transition: top 0.2s, left 0.2s;
+}
