@@ -25,9 +25,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "baseHref": "/For-Reese/"
           },
           "configurations": {
             "production": {
@@ -80,11 +82,12 @@
               },
               "src/assets"
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "baseHref": "/For-Reese/"
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-gh-pages:deploy"
         }
       }
     }
