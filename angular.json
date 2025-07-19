@@ -86,7 +86,7 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-gh-pages:deploy"
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
