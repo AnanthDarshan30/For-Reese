@@ -82,8 +82,7 @@
               },
               "src/assets"
             ],
-            "styles": ["src/styles.scss"],
-            "baseHref": "/For-Reese/"
+            "styles": ["src/styles.scss"]
           }
         },
         "deploy": {
