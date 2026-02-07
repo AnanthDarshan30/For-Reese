@@ -1,19 +1,24 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
 export const routes: Routes = [
   {
-    path: 'main',
+    path: "main",
     loadComponent: () =>
-      import('./pages/main/main').then((m) => m.MainPageComponent),
+      import("./pages/main/main").then((m) => m.MainPageComponent),
   },
   {
-    path: '',
-    redirectTo: 'intro',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "intro",
+    pathMatch: "full",
   },
   {
-    path: 'intro',
+    path: "intro",
     loadComponent: () =>
-      import('./pages/intro/intro').then((m) => m.IntroPageComponent),
+      import("./pages/intro/intro").then((m) => m.IntroPageComponent),
+  },
+  {
+    path: "rose-day",
+    loadComponent: () =>
+      import("./pages/rose-day/rose-day").then((m) => m.RoseDay),
   },
 ];
